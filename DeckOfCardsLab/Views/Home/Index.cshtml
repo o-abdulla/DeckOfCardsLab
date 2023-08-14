@@ -1,0 +1,21 @@
+﻿@model DrawCardsModel
+
+<h1>Deck of Cards</h1>
+
+
+<form asp-method="post" asp-action="Index">
+    <button type="submit">Draw 5 cards</button>
+</form>
+
+<br />
+
+<p>Cards remaining: @Model.remaining</p>
+
+@{
+    foreach (Card c in Model.cards)
+    {
+        <img src="@c.image"/>
+        <p> @c.value of @c.suit</p>
+        
+    }
+}
