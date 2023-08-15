@@ -32,7 +32,7 @@ namespace DeckOfCardsLab.Models
             //Adjust
             //Setup
             string apiKey = Secret.deckID;
-            string url = $"https://deckofcardsapi.com/api/deck/hyevaj81h4wk/shuffle/";
+            string url = $"https://deckofcardsapi.com/api/deck/{apiKey}/shuffle/";
 
             //Request
             HttpWebRequest request = WebRequest.CreateHttp(url);
