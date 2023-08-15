@@ -5,12 +5,12 @@ namespace DeckOfCardsLab.Models
 {
     public class DrawCardsDAL
     {
-        public static DrawCardsModel Draw5Cards() //Adjust here
+        public static DrawCardsModel Draw5Cards(int drawCount) //Adjust here
         {
             //Adjust
             //Setup
             string deckID = Secret.deckID;
-            string url = $"https://deckofcardsapi.com/api/deck/{deckID}/draw/?count=5";
+            string url = $"https://deckofcardsapi.com/api/deck/{deckID}/draw/?count={drawCount}";
 
             //Request
             HttpWebRequest request = WebRequest.CreateHttp(url);
@@ -27,7 +27,29 @@ namespace DeckOfCardsLab.Models
             return result;
         }
 
-        public static DrawCardsModel Reshuffle() //Adjust here
+        //public static DrawCardsModel Reshuffle() //Adjust here
+        //{
+        //    //Adjust
+        //    //Setup
+        //    string apiKey = Secret.deckID;
+        //    string url = $"https://deckofcardsapi.com/api/deck/{apiKey}/shuffle/";
+
+        //    //Request
+        //    HttpWebRequest request = WebRequest.CreateHttp(url);
+        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+        //    //Converting to json
+        //    StreamReader reader = new StreamReader(response.GetResponseStream());
+        //    string json = reader.ReadToEnd();
+
+        //    //Adjust
+        //    //Convert to c#
+        //    //Install Newtonsoft.json
+        //    DrawCardsModel result = JsonConvert.DeserializeObject<DrawCardsModel>(json);
+        //    return result;
+        //}
+
+        public static void Reshuffle() //Adjust here
         {
             //Adjust
             //Setup
@@ -38,17 +60,7 @@ namespace DeckOfCardsLab.Models
             HttpWebRequest request = WebRequest.CreateHttp(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            //Converting to json
-            StreamReader reader = new StreamReader(response.GetResponseStream());
-            string json = reader.ReadToEnd();
-
-            //Adjust
-            //Convert to c#
-            //Install Newtonsoft.json
-            DrawCardsModel result = JsonConvert.DeserializeObject<DrawCardsModel>(json);
-            return result;
         }
-
     }
 }
 

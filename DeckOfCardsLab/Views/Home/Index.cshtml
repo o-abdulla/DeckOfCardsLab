@@ -4,18 +4,31 @@
 
 
 <form asp-method="post" asp-action="Index">
-    <button type="submit">Draw 5 cards</button>
+    @{
+        int i = 0;
+        foreach (Card c in Model.cards)
+        {
+            string name = $"card{i}";
+            <div>
+                <img src="@c.image" />
+                <input type="checkbox" value="@c.image" name="@name" />
+            </div>
+            i++;
+        }
+    }
+
+    <input type="submit" value="Click to keep cards" />
 </form>
 
 <br />
 
 <p>Cards remaining: @Model.remaining</p>
 
-@{
+@*@{
     foreach (Card c in Model.cards)
     {
         <img src="@c.image"/>
         <p> @c.value of @c.suit</p>
-        
+
     }
-}
+}*@
